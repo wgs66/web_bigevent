@@ -20,8 +20,13 @@ $(function () {
     pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],
     // 函数方式
     repwd: (value) => {
+      // 第二次输入的密码时候value
+
+      // console.log(value);
       // 获取密码框的值
+      // 获取第一次输入的密码
       const pwd1 = $('.reg-box [name=password]').val();
+      // console.log(pwd1);
       // console.log(value, pwd1);
       // 判断密码框的值是否一致
       if (pwd1 !== value) return '两次密码不一致';
@@ -59,7 +64,7 @@ $(function () {
     e.preventDefault();
     // 阻止表单的默认提交
 
-    console.log($(this).serialize());
+    // console.log($(this).serialize());
     $.ajax({
       type: 'POST',
       url: '/api/login',
@@ -71,7 +76,7 @@ $(function () {
         // 要把token存在本地
         localStorage.setItem('token', res.token);
         // 跳转到首页
-        // location.href = '/index.html';
+        location.href = '/index.html';
       },
     });
   });
