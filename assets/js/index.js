@@ -60,3 +60,8 @@ $('#btnExit').click(() => {
 
 // 调用函数
 getUserInfo();
+
+// 高亮切换
+function change() {
+  $('#change').addClass('layui-this').next().removeClass('layui-this');
+}
